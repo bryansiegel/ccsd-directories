@@ -24,9 +24,6 @@
         <td th:text="${directory.schoolTelephoneNumber}"></td>
         <td th:text="${directory.assistantPrincipal}"></td>
         <td>
-            <a th:href="@{/admin/school-directories/{id}/assistant-principals/create(id=${directory.id})}" class="btn btn-info">Add Assistant Principal</a>
-        </td>
-        <td>
             <a th:href="@{/admin/school-directories/edit/{id}(id=${directory.id})}" class="btn btn-warning">Edit</a>
             <a th:href="@{/admin/school-directories/delete/{id}(id=${directory.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
         </td>
