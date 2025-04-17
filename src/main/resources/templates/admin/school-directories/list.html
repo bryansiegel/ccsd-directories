@@ -8,21 +8,17 @@
 <table class="table">
     <thead>
     <tr>
-        <th>ID</th>
         <th>School Name</th>
         <th>Address</th>
         <th>Telephone</th>
-        <th>Assistant Principals</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="directory : ${directories}">
-        <td th:text="${directory.id}"></td>
         <td th:text="${directory.schoolName}"></td>
         <td th:text="${directory.schoolAddress}"></td>
         <td th:text="${directory.schoolTelephoneNumber}"></td>
-        <td th:text="${directory.assistantPrincipal}"></td>
         <td>
             <a th:href="@{/admin/school-directories/edit/{id}(id=${directory.id})}" class="btn btn-warning">Edit</a>
             <a th:href="@{/admin/school-directories/delete/{id}(id=${directory.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>

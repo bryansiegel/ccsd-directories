@@ -1,7 +1,6 @@
 package com.bryansiegel.ccsddirectories.models;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 public class SchoolTelephoneDirectory {
@@ -20,7 +19,7 @@ public class SchoolTelephoneDirectory {
     private String schoolFax;
     private String schoolPrincipal;
     private String officeManager;
-    private String trusteeDisctrict;
+    private String trusteeDistrict;
     private String municipality;
     private String regionUnitSupervisor;
     private String regionUnitSupervisorTelephoneNumber;
@@ -107,12 +106,12 @@ public class SchoolTelephoneDirectory {
         this.officeManager = officeManager;
     }
 
-    public String getTrusteeDisctrict() {
-        return trusteeDisctrict;
+    public String getTrusteeDistrict() {
+        return trusteeDistrict;
     }
 
-    public void setTrusteeDisctrict(String trusteeDisctrict) {
-        this.trusteeDisctrict = trusteeDisctrict;
+    public void setTrusteeDistrict(String trusteeDisctrict) {
+        this.trusteeDistrict = trusteeDisctrict;
     }
 
     public String getMunicipality() {
@@ -169,7 +168,7 @@ public class SchoolTelephoneDirectory {
                 ", schoolFax='" + schoolFax + '\'' +
                 ", schoolPrincipal='" + schoolPrincipal + '\'' +
                 ", officeManager='" + officeManager + '\'' +
-                ", trusteeDisctrict='" + trusteeDisctrict + '\'' +
+                ", trusteeDisctrict='" + trusteeDistrict + '\'' +
                 ", municipality='" + municipality + '\'' +
                 ", regionUnitSupervisor='" + regionUnitSupervisor + '\'' +
                 ", regionUnitSupervisorTelephoneNumber='" + regionUnitSupervisorTelephoneNumber + '\'' +

@@ -21,6 +21,43 @@
         <label for="assistantPrinciple">Assistant Principle:</label>
         <input type="text" id="assistantPrinciple" th:field="*{assistantPrincipal}" />
     </div>
+
+    <div>
+        <label for="wan">WAN:</label>
+        <input type="text" id="wan" th:field="*{schoolWan}" />
+    </div>
+    <div>
+        <label for="fax">FAS:</label>
+        <input type="text" id="fax" th:field="*{schoolFax}" />
+    </div>
+    <div>
+        <label for="principal">Pricipal:</label>
+        <input type="text" id="principal" th:field="*{schoolPrincipal}" />
+    </div>
+    <div>
+        <label for="officeManager">Office Manager:</label>
+        <input type="text" id="officeManager" th:field="*{officeManager}" />
+    </div>
+    <div>
+        <label for="trusteeDistrict">Trustee District:</label>
+        <input type="text" id="trusteeDistrict" th:field="*{officeManager}" />
+    </div>
+    <div>
+        <label for="municipality">Municipality:</label>
+        <input type="text" id="municipality" th:field="*{municipality}" />
+    </div>
+    <div>
+        <label for="regionUnitSupervisor">Region Unit Supervisor:</label>
+        <input type="text" id="regionUnitSupervisor" th:field="*{regionUnitSupervisor}" />
+    </div>
+    <div>
+        <label for="regionUnitSupervisorTelephoneNumber">Region Unit Supervisor Telephone Number:</label>
+        <input type="text" id="regionUnitSupervisorTelephoneNumber" th:field="*{regionUnitSupervisorTelephoneNumber}" />
+    </div>
+    <div>
+        <label for="studentSuccessCoordinator">Student Success Coordinator:</label>
+        <input type="text" id="studentSuccessCoordinator" th:field="*{studentSuccessCoordinator}" />
+    </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
 <div th:insert="~{admin/fragments/footer}"></div>
