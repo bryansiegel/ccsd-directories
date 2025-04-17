@@ -15,6 +15,7 @@ public class SchoolTelephoneDirectory {
     private String schoolName;
     private String schoolAddress;
     private String schoolTelephoneNumber;
+    private String assistantPrincipal;
     private String schoolWan;
     private String schoolFax;
     private String schoolPrincipal;
@@ -24,9 +25,6 @@ public class SchoolTelephoneDirectory {
     private String regionUnitSupervisor;
     private String regionUnitSupervisorTelephoneNumber;
     private String studentSuccessCoordinator;
-
-    @OneToMany(mappedBy = "schoolTelephoneDirectory", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AssistantPrincipal> assistantPrincipals;
 
     // Getters and Setters
     public Long getId() {
@@ -141,20 +139,20 @@ public class SchoolTelephoneDirectory {
         this.regionUnitSupervisorTelephoneNumber = regionUnitSupervisorTelephoneNumber;
     }
 
-    public List<AssistantPrincipal> getAssistantPrincipals() {
-        return assistantPrincipals;
-    }
-
-    public void setAssistantPrincipals(List<AssistantPrincipal> assistantPrincipals) {
-        this.assistantPrincipals = assistantPrincipals;
-    }
-
     public String getStudentSuccessCoordinator() {
         return studentSuccessCoordinator;
     }
 
     public void setStudentSuccessCoordinator(String studentSuccessCoordinator) {
         this.studentSuccessCoordinator = studentSuccessCoordinator;
+    }
+
+    public String getAssistantPrincipal() {
+        return assistantPrincipal;
+    }
+
+    public void setAssistantPrincipal(String assistantPrincipal) {
+        this.assistantPrincipal = assistantPrincipal;
     }
 
     @Override
@@ -166,6 +164,7 @@ public class SchoolTelephoneDirectory {
                 ", schoolName='" + schoolName + '\'' +
                 ", schoolAddress='" + schoolAddress + '\'' +
                 ", schoolTelephoneNumber='" + schoolTelephoneNumber + '\'' +
+                ", assistantPrincipal='" + assistantPrincipal + '\'' +
                 ", schoolWan='" + schoolWan + '\'' +
                 ", schoolFax='" + schoolFax + '\'' +
                 ", schoolPrincipal='" + schoolPrincipal + '\'' +
@@ -174,7 +173,7 @@ public class SchoolTelephoneDirectory {
                 ", municipality='" + municipality + '\'' +
                 ", regionUnitSupervisor='" + regionUnitSupervisor + '\'' +
                 ", regionUnitSupervisorTelephoneNumber='" + regionUnitSupervisorTelephoneNumber + '\'' +
-                ", assistantPrincipals=" + assistantPrincipals +
+                ", studentSuccessCoordinator='" + studentSuccessCoordinator + '\'' +
                 '}';
     }
 }

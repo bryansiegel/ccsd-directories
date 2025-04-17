@@ -1,11 +1,8 @@
 package com.bryansiegel.ccsddirectories.controllers;
 
 import com.bryansiegel.ccsddirectories.models.SchoolTelephoneDirectory;
-import com.bryansiegel.ccsddirectories.models.AssistantPrincipal;
-import com.bryansiegel.ccsddirectories.repositories.AssistantPrincipalRepository;
 import com.bryansiegel.ccsddirectories.repositories.SchoolTelephoneDirectoryRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +11,9 @@ import org.springframework.web.bind.annotation.*;
 public class SchoolTelephoneDirectoryController {
 
     private final SchoolTelephoneDirectoryRepository schoolTelephoneDirectoryRepository;
-    private final AssistantPrincipalRepository assistantPrincipalRepository;
 
-    public SchoolTelephoneDirectoryController(SchoolTelephoneDirectoryRepository schoolTelephoneDirectoryRepository, AssistantPrincipalRepository assistantPrincipalRepository) {
+    public SchoolTelephoneDirectoryController(SchoolTelephoneDirectoryRepository schoolTelephoneDirectoryRepository) {
         this.schoolTelephoneDirectoryRepository = schoolTelephoneDirectoryRepository;
-        this.assistantPrincipalRepository = assistantPrincipalRepository;
     }
 
     @GetMapping
@@ -58,41 +53,5 @@ public class SchoolTelephoneDirectoryController {
     public String deleteDirectory(@PathVariable Long id) {
         schoolTelephoneDirectoryRepository.deleteById(id);
         return "redirect:/admin/school-directories";
-    }
-
-    @GetMapping("/{id}/assistant-principals")
-    public String listAssistantPrincipals(@PathVariable Long id, Model model) {
-        SchoolTelephoneDirectory directory = schoolTelephoneDirectoryRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid directory ID: " + id));
-        model.addAttribute("directory", directory);
-        model.addAttribute("assistantPrincipals", directory.getAssistantPrincipals());
-        return "admin/school-directories/assistant-principals/list";
-    }
-
-    @GetMapping("/{id}/assistant-principals/create")
-    public String showCreateAssistantPrincipalForm(@PathVariable Long id, Model model) {
-        SchoolTelephoneDirectory directory = schoolTelephoneDirectoryRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid directory ID: " + id));
-        AssistantPrincipal assistantPrincipal = new AssistantPrincipal();
-        assistantPrincipal.setSchoolTelephoneDirectory(directory);
-        model.addAttribute("assistantPrincipal", assistantPrincipal);
-        return "admin/school-directories/assistant-principals/create";
-    }
-
-    @Transactional
-    @PostMapping("/{id}/assistant-principals/create")
-    public String createAssistantPrincipal(@PathVariable Long id, @ModelAttribute AssistantPrincipal assistantPrincipal) {
-        // Fetch the SchoolTelephoneDirectory by its ID
-        SchoolTelephoneDirectory directory = schoolTelephoneDirectoryRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid SchoolTelephoneDirectory ID: " + id));
-
-        // Associate the AssistantPrincipal with the fetched SchoolTelephoneDirectory
-        assistantPrincipal.setSchoolTelephoneDirectory(directory);
-
-        // Save the AssistantPrincipal
-        assistantPrincipalRepository.save(assistantPrincipal);
-
-        // Redirect to the list of assistant principals for the directory
-        return "redirect:/admin/school-directories/" + id + "/assistant-principals";
     }
 }
