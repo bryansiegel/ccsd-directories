@@ -17,6 +17,10 @@
         <label for="schoolTelephoneNumber">Telephone:</label>
         <input type="text" id="schoolTelephoneNumber" th:field="*{schoolTelephoneNumber}" required />
     </div>
+    <div>
+        <label for="assistantPrinciple">Assistant Principle:</label>
+        <input type="text" id="assistantPrinciple" th:field="*{assistantPrincipal}" />
+    </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
 <div th:insert="~{admin/fragments/footer}"></div>

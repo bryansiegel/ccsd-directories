@@ -22,6 +22,7 @@
         <td th:text="${directory.schoolName}"></td>
         <td th:text="${directory.schoolAddress}"></td>
         <td th:text="${directory.schoolTelephoneNumber}"></td>
+        <td th:text="${directory.assistantPrincipal}"></td>
         <td>
             <a th:href="@{/admin/school-directories/{id}/assistant-principals/create(id=${directory.id})}" class="btn btn-info">Add Assistant Principal</a>
         </td>
