@@ -1,4 +1,4 @@
-package com.bryansiegel.ccsddirectories.config.controllers;
+package com.bryansiegel.ccsddirectories.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

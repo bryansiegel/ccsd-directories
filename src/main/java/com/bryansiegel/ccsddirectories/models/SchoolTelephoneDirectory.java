@@ -1,4 +1,4 @@
-package com.bryansiegel.ccsddirectories.config.models;
+package com.bryansiegel.ccsddirectories.models;
 
 import jakarta.persistence.*;
 import java.util.List;
