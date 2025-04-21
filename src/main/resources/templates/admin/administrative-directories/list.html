@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{admin/fragments/head}"></head>
+<body>
+<div th:insert="~{admin/fragments/header}"></div>
+
+<h1>Administrative Directories</h1>
+<a href="/admin/administrative-directories/create" class="btn btn-primary">Create New Directory</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Telephone Number</th>
+        <th>WAN</th>
+        <th>Fax</th>
+        <th>Departments</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="directory : ${directories}">
+        <td th:text="${directory.id}"></td>
+        <td th:text="${directory.firstName}"></td>
+        <td th:text="${directory.lastName}"></td>
+        <td th:text="${directory.telephoneNumber}"></td>
+        <td th:text="${directory.wan}"></td>
+        <td th:text="${directory.fax}"></td>
+        <td th:text="${directory.departments}"></td>
+        <td>
+            <a th:href="@{/admin/administrative-directories/edit/{id}(id=${directory.id})}" class="btn btn-warning">Edit</a>
+            <a th:href="@{/admin/administrative-directories/delete/{id}(id=${directory.id})}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div th:insert="~{admin/fragments/footer}"></div>
+</body>
+</html>

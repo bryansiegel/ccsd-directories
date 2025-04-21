@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{admin/fragments/head}"></head>
+<body>
+<div th:insert="~{admin/fragments/header}"></div>
+<h1>Edit Administrative Directory</h1>
+<form th:action="@{/administrative-directories/{id}(id=${directory.id})}" th:object="${directory}" method="post">
+    <label>First Name: <input type="text" th:field="*{firstName}" /></label><br />
+    <label>Last Name: <input type="text" th:field="*{lastName}" /></label><br />
+    <label>Telephone Number: <input type="text" th:field="*{telephoneNumber}" /></label><br />
+    <label>WAN: <input type="text" th:field="*{wan}" /></label><br />
+    <label>Fax: <input type="text" th:field="*{fax}" /></label><br />
+    <label>Departments: <input type="text" th:field="*{departments}" /></label><br />
+    <button type="submit">Update</button>
+</form>
+<div th:insert="~{admin/fragments/footer}"></div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{admin/fragments/head}"></head>
+<body>
+<div th:insert="~{admin/fragments/header}"></div>
+<h1>Create Administrative Directory</h1>
+<form th:action="@{/admin/administrative-directories}" th:object="${directory}" method="post">
+
+    <div class="form-group">
+        <label class="form-label">First Name:</label>
+        <input type="text" th:field="*{firstName}" class="form-control" required/>
+    </div>
+<div class="form-group">
+    <label class="form-label">Last Name:</label>
+    <input type="text" th:field="*{lastName}" class="form-control" required/>
+</div>
+    <div class="form-group">
+        <label class="form-label">Telephone Number:</label>
+        <input type="text" th:field="*{telephoneNumber}" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label class="form-label">WAN:</label>
+        <input type="text" th:field="*{wan}" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Fax:</label>
+        <input type="text" th:field="*{fax}" class="form-control" required/>
+    </div>
+    <div class="form-group">
+    <label class="form-label">Departments:</label>
+        <select th:field="*{departments}" class="form-select-lg">
+            <option value="" disabled selected>Select a department</option>
+            <option th:value="'AARSI'">AARSI</option>
+            <option th:value="'Accounting Department Facility Rental'">Accounting Department Facility Rental</option>
+            <option th:value="'Accounting Department School Accounting'">Accounting Department School Accounting</option>
+            <option th:value="'ACFR and PAFR-type data - Accounting'">ACFR and PAFR-type data - Accounting</option>
+            <option th:value="'Budget Department'">Budget Department</option>
+            <option th:value="'College and Career Readiness and School Choice'">College and Career Readiness and School Choice</option>
+            <option th:value="'College Career Equity'">College Career Equity</option>
+            <option th:value="'Communication'">Communication</option>
+            <option th:value="'Communications'">Communications</option>
+            <option th:value="'Communications/CTE'">Communications/CTE</option>
+            <option th:value="'Communications/HR'">Communications/HR</option>
+            <option th:value="'Curriculum Instruction'">Curriculum Instruction</option>
+            <option th:value="'EDE'">EDE</option>
+            <option th:value="'ELL'">ELL</option>
+            <option th:value="'ELL/Family Services Center'">ELL/Family Services Center</option>
+            <option th:value="'Employess Business Training'">Employess Business Training</option>
+            <option th:value="'Enagement'">Enagement</option>
+            <option th:value="'Environmental Services'">Environmental Services</option>
+            <option th:value="'Facilites'">Facilites</option>
+            <option th:value="'Grants Development'">Grants Development</option>
+            <option th:value="'Morris Sunset East HS'">Morris Sunset East HS</option>
+            <option th:value="'Openbook'">Openbook</option>
+            <option th:value="'Student Service'">Student Service</option>
+            <option th:value="'User Support'">User Support</option>
+            <option th:value="'Secondary Student Athletics and Activities'">Secondary Student Athletics and Activities</option>
+            <option th:value="'SSD/Wraparound Service'">SSD/Wraparound Service</option>
+            <option th:value="'Guidance &amp; Counseling Department/CCESC'">Guidance &amp; Counseling Department/CCESC</option>
+            <option th:value="'Student Information Systems'">Student Information Systems</option>
+            <option th:value="'Office of the Superintendent'">Office of the Superintendent</option>
+            <option th:value="'Charter Schools'">Charter Schools</option>
+            <option th:value="'Business and Finance Unit'">Business and Finance Unit</option>
+            <option th:value="'Wraparound Services'">Wraparound Services</option>
+            <option th:value="'Office of the Superintendent'">Office of the Superintendent</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+<div th:insert="~{admin/fragments/footer}"></div>
+</body>
+</html>
