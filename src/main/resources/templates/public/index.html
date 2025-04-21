@@ -1,0 +1,40 @@
+<template>
+    <div>
+        <h1>School Telephone Directories</h1>
+        <ul>
+            <li v-for="directory in directories" :key="directory.id">
+                {{ directory.name }} - {{ directory.phone }}
+            </li>
+        </ul>
+    </div>
+</template>
+
+<script>
+    import axios from "axios";
+
+    export default {
+        data() {
+            return {
+                directories: [],
+            };
+        },
+        created() {
+            this.fetchDirectories();
+        },
+        methods: {
+            async fetchDirectories() {
+                try {
+                    const response = await axios.get("/api/school-directories", {
+                        auth: {
+                            username: 'user',
+                            password: 'password'
+                        }
+                    });
+                    this.directories = response.data;
+                } catch (error) {
+                    console.error("Error fetching directories:", error);
+                }
+            },
+        },
+    };
+</script>
